@@ -7,7 +7,8 @@ setup(
 	ext_modules=[
 		Extension(
 			'xdxf2html',
-			['src/utils.cc', 'src/parse.cc', 'src/build.cc', 'src/xdxf2html.cc']
+			['src/utils.cc', 'src/parse.cc', 'src/build.cc', 'src/xdxf2html.cc'],
+			extra_compile_args=['-std=c++11']
 		)
 	]
 )
