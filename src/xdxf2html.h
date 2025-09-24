@@ -48,8 +48,8 @@ private:
 	static bool is_audio(const std::string &filename);
 	static bool is_video(const std::string &filename);
 	
-	std::string url_cache_root;
-	std::string url_lookup_root;
+	std::string base_url_static_files;
+	std::string base_url_lookup;
 
 	bool audio_found;
 
@@ -86,7 +86,7 @@ private:
 	void write_unknown(const node &n); // as is
 
 public:
-	builder(const std::string & name_dict);
+	builder(const std::string &base_url_static_files, const std::string &base_url_lookup);
 
 	std::string get_html(const node & n);
 };

@@ -22,10 +22,10 @@ python3 setup.py build
 >>> import xdxf2html
 >>> xdxf2html.convert('''<k>Liverpool</k>
 ... <blockquote><dtrn>a large city and port in north-west England, on the River Mersey. It first became important during the <kref>Industrial Revolution</kref>, producing and exporting cotton goods. It was also a major port for the slave trade, receiving profits from the sale of slaves in America. In the 20th century the city became famous as the home of the <kref>Beatles</kref> and for Liverpool and Everton football clubs. Among its many famous buildings are the Royal Liver Building with its two towers, the Anglican and Roman Catholic cathedrals, and the <kref>Walker Art Gallery</kref>.</dtrn> <rref>portlpool.jpg</rref></blockquote>
-... <blockquote>See also <kref>Mersey beat</kref>.</blockquote>''', 'test_dict')
+... <blockquote>See also <kref>Mersey beat</kref>.</blockquote>''', '/static', '/lookup')
 '<h3 class="headword">Liverpool</h3><div class="xdxf-definition" style="margin-left: 0em;">a large city and port in north-west England, on the River Mersey. It first became important during the <a href="/api/lookup/test_dict/Industrial Revolution">Industrial Revolution</a>, producing and exporting cotton goods. It was also a major port for the slave trade, receiving profits from the sale of slaves in America. In the 20th century the city became famous as the home of the <a href="/api/lookup/test_dict/Beatles">Beatles</a>and for Liverpool and Everton football clubs. Among its many famous buildings are the Royal Liver Building with its two towers, the Anglican and Roman Catholic cathedrals, and the <a href="/api/lookup/test_dict/Walker Art Gallery">Walker Art Gallery</a>.<img src="/api/cache/test_dict/portlpool.jpg" alt="portlpool.jpg"/></div><div class="xdxf-definition" style="margin-left: 0em;">See also <a href="/api/lookup/test_dict/Mersey beat">Mersey beat</a>.</div>'
 ```
-The module has only one method: `convert`, which takes two arguments: the XDXF text and the name of the dictionary. It returns the HTML text.
+The module has only one method: `convert`, which takes three arguments: the XDXF text and the base URLs for static files and lookup. It returns the HTML text.
 
 # Appendix: a hopefully complete listing of XDXF tags, both standard and non-standard
 

@@ -4,9 +4,10 @@
 static PyObject *convert(PyObject *self, PyObject *args)
 {
 	const char *xdxf;
-	const char *name_dict;
+	const char *base_url_static_files;
+	const char *base_url_lookup;
 
-	if (!PyArg_ParseTuple(args, "ss", &xdxf, &name_dict))
+	if (!PyArg_ParseTuple(args, "sss", &xdxf, &base_url_static_files, &base_url_lookup))
 	{
 		return NULL;
 	}
@@ -15,8 +16,8 @@ static PyObject *convert(PyObject *self, PyObject *args)
 
 	Py_BEGIN_ALLOW_THREADS
 		dom d(xdxf);
-	builder b(name_dict);
-	result = b.get_html(d.root);
+		builder b(base_url_static_files, base_url_lookup);
+		result = b.get_html(d.root);
 	Py_END_ALLOW_THREADS
 
 		PyObject *html = PyUnicode_DecodeUTF8(result.c_str(), result.length(), "strict");
